@@ -23,7 +23,15 @@ const userRoute=(app) => {
             const user=getUsers()
 
             res.send({ users})
-        }
+        })
+        .exports((req,res)=>{
+            const user=getUsers()
+
+            users.push(req.body)
+            serveUeser(users)
+            
+            res.send(201).send('OK')
+        })
 }
 
 module.exports=userRoute
