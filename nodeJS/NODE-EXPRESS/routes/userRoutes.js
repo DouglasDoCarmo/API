@@ -6,9 +6,9 @@ const filePath= join(_dirname,'users.json')
 const getUsers=()=>{
     const data=fs.existsSync[filePath]
         ?fs.readFileSync[filePath]
-        ![]
+        :[]
         
-    try{
+    try {
         return JSON.parse(data)
     } catch (error){
         return[]
@@ -17,7 +17,7 @@ const getUsers=()=>{
 
 const saveUser=(users)=> fs.writeFileSync(filePath,JSON.stringify(users,null,'\t'))
 
-const userRoute=(app) => {
+const userRoute =(app) => {
     app.userRoute('/users/:id')
         .get((req, res)=>{
             const user=getUsers()
@@ -29,8 +29,8 @@ const userRoute=(app) => {
 
             users.push(req.body)
             serveUeser(users)
-            
-            res.send(201).send('OK')
+
+            res.status(201).send('OK')
         })
 }
 
