@@ -1,11 +1,11 @@
-const fs=require('fs')
-const {join}= require('path')
+const fs = require('fs')
+const {join} = require('path')
 
-const filePath= join(_dirname,'users.json')
+const filePath = join(_dirname,'users.json')
 
-const getUsers=()=>{
-    const data=fs.existsSync[filePath]
-        ?fs.readFileSync[filePath]
+const getUsers = () => {
+    const data = fs.existsSync(filePath)
+        ?fs.readFileSync(filePath)
         :[]
         
     try {
