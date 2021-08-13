@@ -18,14 +18,14 @@ const getUsers = () => {
 const saveUser=(users)=> fs.writeFileSync(filePath,JSON.stringify(users,null,'\t'))
 
 const userRoute =(app) => {
-    app.userRoute('/users/:id')
-        .get((req, res)=>{
-            const user=getUsers()
+    app.route('/users/:id?')
+        .get((req,res)=>{
+            const users = getUsers()
 
             res.send({ users})
-        })
-        .exports((req,res)=>{
-            const user=getUsers()
+        })        
+        .post((req,res) => {
+            const user = getUsers()
 
             users.push(req.body)
             serveUeser(users)
